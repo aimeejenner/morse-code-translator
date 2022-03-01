@@ -1,1 +1,1 @@
-# morse-code-translator
+A morse code translator using OOP. Built with HTML, SCSS and JavaScript.
