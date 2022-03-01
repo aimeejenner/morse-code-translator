@@ -3,6 +3,16 @@ class Translator {
         this.inputContainer = inputContainer;
         this.outputContainer = outputContainer;
     }
+
+    getInput() {
+        return document.querySelector(this.inputContainer).value;
+    }
+
+    displayOutput() {
+        document.querySelector(this.inputContainer).addEventListener("input", (event) => {
+            document.querySelector(this.outputContainer).value = this.joinWords();
+        })
+    }
 }
 
 class EnglishToMorse extends Translator {

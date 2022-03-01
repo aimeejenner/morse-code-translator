@@ -14,12 +14,38 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Translator = function Translator(inputContainer, outputContainer) {
-  _classCallCheck(this, Translator);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  this.inputContainer = inputContainer;
-  this.outputContainer = outputContainer;
-};
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Translator =
+/*#__PURE__*/
+function () {
+  function Translator(inputContainer, outputContainer) {
+    _classCallCheck(this, Translator);
+
+    this.inputContainer = inputContainer;
+    this.outputContainer = outputContainer;
+  }
+
+  _createClass(Translator, [{
+    key: "getInput",
+    value: function getInput() {
+      return document.querySelector(this.inputContainer).value;
+    }
+  }, {
+    key: "displayOutput",
+    value: function displayOutput() {
+      var _this = this;
+
+      document.querySelector(this.inputContainer).addEventListener("input", function (event) {
+        document.querySelector(_this.outputContainer).value = _this.joinWords();
+      });
+    }
+  }]);
+
+  return Translator;
+}();
 
 var EnglishToMorse =
 /*#__PURE__*/
@@ -27,12 +53,12 @@ function (_Translator) {
   _inherits(EnglishToMorse, _Translator);
 
   function EnglishToMorse(inputContainer, outputContainer) {
-    var _this;
+    var _this2;
 
     _classCallCheck(this, EnglishToMorse);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EnglishToMorse).call(this, inputContainer, outputContainer));
-    _this.englishToMorseDictionary = {
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(EnglishToMorse).call(this, inputContainer, outputContainer));
+    _this2.englishToMorseDictionary = {
       "A": ".-",
       "B": "-...",
       "C": "-.-.",
@@ -60,7 +86,7 @@ function (_Translator) {
       "Y": "-.--",
       "Z": "--.."
     };
-    return _this;
+    return _this2;
   }
 
   return EnglishToMorse;
@@ -72,12 +98,12 @@ function (_Translator2) {
   _inherits(MorseToEnglish, _Translator2);
 
   function MorseToEnglish(inputContainer, outputContainer) {
-    var _this2;
+    var _this3;
 
     _classCallCheck(this, MorseToEnglish);
 
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
-    _this2.morseToEnglishDictionary = {
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
+    _this3.morseToEnglishDictionary = {
       ".-": "A",
       "-...": "B",
       "-.-.": "C",
@@ -105,7 +131,7 @@ function (_Translator2) {
       "-.--": "Y",
       "--..": "Z"
     };
-    return _this2;
+    return _this3;
   }
 
   return MorseToEnglish;
