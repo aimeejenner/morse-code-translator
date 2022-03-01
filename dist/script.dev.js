@@ -27,9 +27,40 @@ function (_Translator) {
   _inherits(EnglishToMorse, _Translator);
 
   function EnglishToMorse(inputContainer, outputContainer) {
+    var _this;
+
     _classCallCheck(this, EnglishToMorse);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EnglishToMorse).call(this, inputContainer, outputContainer));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EnglishToMorse).call(this, inputContainer, outputContainer));
+    _this.englishToMorseDictionary = {
+      "A": ".-",
+      "B": "-...",
+      "C": "-.-.",
+      "D": "-..",
+      "E": ".",
+      "F": "..-.",
+      "G": "--.",
+      "H": "....",
+      "I": "..",
+      "J": ".---",
+      "K": "-.-",
+      "L": ".-..",
+      "M": "--",
+      "N": "-.",
+      "O": "---",
+      "P": ".--.",
+      "Q": "--.-",
+      "R": ".-.",
+      "S": "...",
+      "T": "-",
+      "U": "..-",
+      "V": "...-",
+      "W": ".--",
+      "X": "-..-",
+      "Y": "-.--",
+      "Z": "--.."
+    };
+    return _this;
   }
 
   return EnglishToMorse;
@@ -41,9 +72,40 @@ function (_Translator2) {
   _inherits(MorseToEnglish, _Translator2);
 
   function MorseToEnglish(inputContainer, outputContainer) {
+    var _this2;
+
     _classCallCheck(this, MorseToEnglish);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
+    _this2.morseToEnglishDictionary = {
+      ".-": "A",
+      "-...": "B",
+      "-.-.": "C",
+      "-..": "D",
+      ".": "E",
+      "..-.": "F",
+      "--.": "G",
+      "....": "H",
+      "..": "I",
+      ".---": "J",
+      "-.-": "K",
+      ".-..": "L",
+      "--": "M",
+      "-.": "N",
+      "---": "O",
+      ".--.": "P",
+      "--.-": "Q",
+      ".-.": "R",
+      "...": "S",
+      "-": "T",
+      "..-": "U",
+      "...-": "V",
+      ".--": "W",
+      "-..-": "X",
+      "-.--": "Y",
+      "--..": "Z"
+    };
+    return _this2;
   }
 
   return MorseToEnglish;
