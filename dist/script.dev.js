@@ -56,8 +56,11 @@ var EnglishToMorse =
 function (_Translator) {
   _inherits(EnglishToMorse, _Translator);
 
-  function EnglishToMorse(inputContainer, outputContainer) {
+  function EnglishToMorse() {
     var _this2;
+
+    var inputContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ".english-input";
+    var outputContainer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ".morse-input";
 
     _classCallCheck(this, EnglishToMorse);
 
@@ -119,8 +122,11 @@ var MorseToEnglish =
 function (_Translator2) {
   _inherits(MorseToEnglish, _Translator2);
 
-  function MorseToEnglish(inputContainer, outputContainer) {
+  function MorseToEnglish() {
     var _this4;
+
+    var inputContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ".morse-input";
+    var outputContainer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ".english-input";
 
     _classCallCheck(this, MorseToEnglish);
 

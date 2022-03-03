@@ -1,9 +1,14 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 h1 {
   font-size: 28px;
+  margin: 10px;
+  padding-bottom: 20px;
 }
 
 form {
@@ -23,5 +28,9 @@ textarea {
   color: blue;
   font-size: 18px;
   font-weight: bold;
-  padding: 5px;
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
 }

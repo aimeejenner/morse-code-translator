@@ -16,7 +16,7 @@ class Translator {
 }
 
 class EnglishToMorse extends Translator {
-    constructor(inputContainer, outputContainer) {
+    constructor(inputContainer=".english-input", outputContainer=".morse-input") {
         super(inputContainer, outputContainer);
         this.englishToMorseDictionary = {
             "A" : ".-", "B" : "-...", "C" : "-.-.", "D" : "-..",
@@ -43,7 +43,7 @@ class EnglishToMorse extends Translator {
 }
 
 class MorseToEnglish extends Translator {
-    constructor(inputContainer, outputContainer) {
+    constructor(inputContainer=".morse-input", outputContainer=".english-input") {
         super(inputContainer, outputContainer);
         this.morseToEnglishDictionary = {
             ".-" : "A", "-..." : "B", "-.-." : "C", "-.." : "D",
