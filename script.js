@@ -28,6 +28,10 @@ class EnglishToMorse extends Translator {
             "Y" : "-.--", "Z" : "--.."
         }
     }
+
+    getInputWords() {
+        return super.getInput().toUpperCase().split(" ");
+    }
 }
 
 class MorseToEnglish extends Translator {
@@ -42,5 +46,9 @@ class MorseToEnglish extends Translator {
             "..-" : "U", "...-" : "V", ".--" : "W", "-..-" : "X",
             "-.--" : "Y", "--.." : "Z"
         }
+    }
+
+    getInputWords() {
+        return super.getInput().split("/");
     }
 }
