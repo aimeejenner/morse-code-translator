@@ -32,6 +32,14 @@ class EnglishToMorse extends Translator {
     getInputWords() {
         return super.getInput().toUpperCase().split(" ");
     }
+
+    translateWords() {
+        return this.getInputWords().map(word => word
+            .split("")
+            .map(letter => this.englishToMorseDictionary[letter])
+            .join(" ")
+        );
+    }
 }
 
 class MorseToEnglish extends Translator {

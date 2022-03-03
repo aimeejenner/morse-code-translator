@@ -98,6 +98,17 @@ function (_Translator) {
     value: function getInputWords() {
       return _get(_getPrototypeOf(EnglishToMorse.prototype), "getInput", this).call(this).toUpperCase().split(" ");
     }
+  }, {
+    key: "translateWords",
+    value: function translateWords() {
+      var _this3 = this;
+
+      return this.getInputWords().map(function (word) {
+        return word.split("").map(function (letter) {
+          return _this3.englishToMorseDictionary[letter];
+        }).join(" ");
+      });
+    }
   }]);
 
   return EnglishToMorse;
@@ -109,12 +120,12 @@ function (_Translator2) {
   _inherits(MorseToEnglish, _Translator2);
 
   function MorseToEnglish(inputContainer, outputContainer) {
-    var _this3;
+    var _this4;
 
     _classCallCheck(this, MorseToEnglish);
 
-    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
-    _this3.morseToEnglishDictionary = {
+    _this4 = _possibleConstructorReturn(this, _getPrototypeOf(MorseToEnglish).call(this, inputContainer, outputContainer));
+    _this4.morseToEnglishDictionary = {
       ".-": "A",
       "-...": "B",
       "-.-.": "C",
@@ -142,7 +153,7 @@ function (_Translator2) {
       "-.--": "Y",
       "--..": "Z"
     };
-    return _this3;
+    return _this4;
   }
 
   _createClass(MorseToEnglish, [{
