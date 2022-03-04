@@ -76,3 +76,9 @@ class MorseToEnglish extends Translator {
         return this.translateWords().join(" ");
     }
 }
+
+const translateToMorse = new EnglishToMorse();
+translateToMorse.displayOutput();
+
+const translateToEnglish = new MorseToEnglish();
+translateToEnglish.displayOutput();

@@ -192,3 +192,8 @@ function (_Translator2) {
 
   return MorseToEnglish;
 }(Translator);
+
+var translateToMorse = new EnglishToMorse();
+translateToMorse.displayOutput();
+var translateToEnglish = new MorseToEnglish();
+translateToEnglish.displayOutput();
