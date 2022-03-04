@@ -59,4 +59,12 @@ class MorseToEnglish extends Translator {
     getInputWords() {
         return super.getInput().split("/");
     }
+
+    translateWords() {
+        return this.getInputWords().map(word => word
+            .split(" ")
+            .map(letter => this.morseToEnglishDictionary[letter])
+            .join("")
+        );      
+    }
 }

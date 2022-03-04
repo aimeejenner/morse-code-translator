@@ -167,6 +167,17 @@ function (_Translator2) {
     value: function getInputWords() {
       return _get(_getPrototypeOf(MorseToEnglish.prototype), "getInput", this).call(this).split("/");
     }
+  }, {
+    key: "translateWords",
+    value: function translateWords() {
+      var _this5 = this;
+
+      return this.getInputWords().map(function (word) {
+        return word.split(" ").map(function (letter) {
+          return _this5.morseToEnglishDictionary[letter];
+        }).join("");
+      });
+    }
   }]);
 
   return MorseToEnglish;
