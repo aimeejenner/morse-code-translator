@@ -5,13 +5,24 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
 
-h1 {
+.heading {
     font-size: 28px;
-    margin: 10px;
     padding-bottom: 20px;
+    margin: 10px;
 }
 
-textarea {
+.sub-heading {
+    color: blue;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.text-body {
+    margin: 10px;
+}
+
+.english-input, .morse-input {
     width: 300px;
     height: 100px;
     padding: 5px;
@@ -19,13 +30,3 @@ textarea {
     resize: none;
 }
 
-.heading {
-    color: blue;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px;
-}
-
-p {
-    margin: 10px;
-}
