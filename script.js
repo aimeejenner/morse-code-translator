@@ -40,6 +40,10 @@ class EnglishToMorse extends Translator {
             .join(" ")
         );
     }
+
+    joinWords() {
+        return this.translateWords().join("/");
+    }
 }
 
 class MorseToEnglish extends Translator {
@@ -66,5 +70,9 @@ class MorseToEnglish extends Translator {
             .map(letter => this.morseToEnglishDictionary[letter])
             .join("")
         );      
+    }
+
+    joinWords() {
+        return this.translateWords().join(" ");
     }
 }

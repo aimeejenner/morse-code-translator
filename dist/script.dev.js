@@ -112,6 +112,11 @@ function (_Translator) {
         }).join(" ");
       });
     }
+  }, {
+    key: "joinWords",
+    value: function joinWords() {
+      return this.translateWords().join("/");
+    }
   }]);
 
   return EnglishToMorse;
@@ -177,6 +182,11 @@ function (_Translator2) {
           return _this5.morseToEnglishDictionary[letter];
         }).join("");
       });
+    }
+  }, {
+    key: "joinWords",
+    value: function joinWords() {
+      return this.translateWords().join(" ");
     }
   }]);
 
