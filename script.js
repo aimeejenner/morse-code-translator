@@ -1,24 +1,23 @@
 class Translator {
-    constructor(inputContainer, outputContainer) {
-        this.inputContainer = inputContainer;
-        this.outputContainer = outputContainer;
+    constructor(input, splitter, joiner) {
+        this.input = input;
+        this.splitter = splitter;
+        this.joiner = joiner;
     }
 
-    getInput() {
-        return document.querySelector(this.inputContainer).value;
+    splitWords() {
+        return this.input.value.split(this.splitter);
     }
 
-    displayOutput() {
-        document.querySelector(this.inputContainer).addEventListener("input", (event) => {
-            document.querySelector(this.outputContainer).value = this.joinWords();
-        })
+    joinWords() {
+        return this.translateWords().join(this.joiner);
     }
 }
 
 class EnglishToMorse extends Translator {
-    constructor(inputContainer=".english-input", outputContainer=".morse-input") {
-        super(inputContainer, outputContainer);
-        this.englishToMorseDictionary = {
+    constructor(input, splitter = " ", joiner="/") {
+        super(input, splitter, joiner);
+        this.dictionary = {
             "A" : ".-", "B" : "-...", "C" : "-.-.", "D" : "-..",
             "E" : ".", "F" : "..-.", "G" : "--.", "H" : "....",
             "I" : "..", "J" : ".---", "K" : "-.-", "L" : ".-..",
@@ -29,27 +28,20 @@ class EnglishToMorse extends Translator {
         }
     }
 
-    getInputWords() {
-        return super.getInput().toUpperCase().split(" ");
-    }
-
     translateWords() {
-        return this.getInputWords().map(word => word
+        return this.splitWords().map(word => word
+            .toUpperCase()
             .split("")
-            .map(letter => this.englishToMorseDictionary[letter])
+            .map(letter => this.dictionary[letter])
             .join(" ")
         );
-    }
-
-    joinWords() {
-        return this.translateWords().join("/");
     }
 }
 
 class MorseToEnglish extends Translator {
-    constructor(inputContainer=".morse-input", outputContainer=".english-input") {
-        super(inputContainer, outputContainer);
-        this.morseToEnglishDictionary = {
+    constructor(input, splitter="/", joiner=" ") {
+        super(input, splitter, joiner);
+        this.dictionary = {
             ".-" : "A", "-..." : "B", "-.-." : "C", "-.." : "D",
             "." : "E", "..-." : "F", "--." : "G", "...." : "H",
             ".." : "I", ".---" : "J", "-.-" : "K", ".-.." : "L",
@@ -60,25 +52,24 @@ class MorseToEnglish extends Translator {
         }
     }
 
-    getInputWords() {
-        return super.getInput().split("/");
-    }
-
     translateWords() {
-        return this.getInputWords().map(word => word
+        return this.splitWords().map(word => word
             .split(" ")
-            .map(letter => this.morseToEnglishDictionary[letter])
+            .map(letter => this.dictionary[letter])
             .join("")
         );      
     }
-
-    joinWords() {
-        return this.translateWords().join(" ");
-    }
 }
 
-const translateToMorse = new EnglishToMorse();
-translateToMorse.displayOutput();
+const englishInput = document.querySelector(".english-input");
+const morseInput = document.querySelector(".morse-input");
 
-const translateToEnglish = new MorseToEnglish();
-translateToEnglish.displayOutput();
+const translateToMorse = new EnglishToMorse(englishInput);
+englishInput.addEventListener("input", (event) => {
+    morseInput.value = translateToMorse.joinWords();
+})
+
+const translateToEnglish = new MorseToEnglish(morseInput);
+morseInput.addEventListener("input", (event) => {
+    englishInput.value = translateToEnglish.joinWords();
+})
