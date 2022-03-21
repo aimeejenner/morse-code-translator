@@ -1,4 +1,4 @@
-class Translator {
+export class Translator {
     constructor(input, splitter, joiner) {
         this.input = input;
         this.splitter = splitter;
@@ -14,7 +14,7 @@ class Translator {
     }
 }
 
-class EnglishToMorse extends Translator {
+export class EnglishToMorse extends Translator {
     constructor(input, splitter = " ", joiner="/") {
         super(input, splitter, joiner);
         this.dictionary = {
@@ -38,7 +38,7 @@ class EnglishToMorse extends Translator {
     }
 }
 
-class MorseToEnglish extends Translator {
+export class MorseToEnglish extends Translator {
     constructor(input, splitter="/", joiner=" ") {
         super(input, splitter, joiner);
         this.dictionary = {
@@ -60,16 +60,3 @@ class MorseToEnglish extends Translator {
         );      
     }
 }
-
-const englishInput = document.querySelector(".english-input");
-const morseInput = document.querySelector(".morse-input");
-
-const translateToMorse = new EnglishToMorse(englishInput);
-englishInput.addEventListener("input", (event) => {
-    morseInput.value = translateToMorse.joinWords();
-})
-
-const translateToEnglish = new MorseToEnglish(morseInput);
-morseInput.addEventListener("input", (event) => {
-    englishInput.value = translateToEnglish.joinWords();
-})
