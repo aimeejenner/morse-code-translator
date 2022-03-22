@@ -37,7 +37,7 @@ function () {
   _createClass(Translator, [{
     key: "splitWords",
     value: function splitWords() {
-      return this.input.value.split(this.splitter);
+      return this.input.split(this.splitter);
     }
   }, {
     key: "joinWords",

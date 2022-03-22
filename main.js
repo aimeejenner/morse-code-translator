@@ -3,12 +3,12 @@ import { Translator, EnglishToMorse, MorseToEnglish } from "./translator.js";
 const englishInput = document.querySelector(".translator__english-input");
 const morseInput = document.querySelector(".translator__morse-input");
 
-const translateToMorse = new EnglishToMorse(englishInput);
 englishInput.addEventListener("input", (event) => {
+    const translateToMorse = new EnglishToMorse(englishInput.value);
     morseInput.value = translateToMorse.joinWords();
 })
 
-const translateToEnglish = new MorseToEnglish(morseInput);
 morseInput.addEventListener("input", (event) => {
+    const translateToEnglish = new MorseToEnglish(morseInput.value);
     englishInput.value = translateToEnglish.joinWords();
 })

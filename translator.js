@@ -6,7 +6,7 @@ export class Translator {
     }
 
     splitWords() {
-        return this.input.value.split(this.splitter);
+        return this.input.split(this.splitter);
     }
 
     joinWords() {

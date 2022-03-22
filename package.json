@@ -1,0 +1,26 @@
+{
+  "name": "morse-code-translator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A morse code translator using OOP. Built with HTML, SCSS and JavaScript.",
+  "main": "main.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimeejenner/morse-code-translator.git"
+  },
+  "keywords": [],
+  "author": "Aimee Jenner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimeejenner/morse-code-translator/issues"
+  },
+  "homepage": "https://github.com/aimeejenner/morse-code-translator#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
+    "jest": "^27.5.1"
+  }
+}
