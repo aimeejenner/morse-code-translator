@@ -128,4 +128,4 @@ The EnglishToMorse and MorseToEnglish translators are imported into the main.js 
 
 ## Testing
 
-The translator.test.js file contains tests which can be run to check that the EnglishMorse and MorseToEnglish translators are working correctly.
+The translator.test.js file contains tests which can be run to check that the EnglishToMorse and MorseToEnglish translators are working correctly.
